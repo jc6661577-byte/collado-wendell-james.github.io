@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wendell James Collado — IT Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6fb; --panel:#e4ebf5; --ink:#0d1b2e; --muted:#4a5d78; --line:#c5d2e4; --accent:#0b6bcb; --accent-ink:#ffffff; --term:#0d1b2e; --term-ink:#cfe3ff; --term-accent:#5cc8ff;
+  --display:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0a1424;--panel:#111f36;--ink:#e3edfb;--muted:#92a7c6;--line:#22365a;--accent:#5cc8ff;--accent-ink:#0a1424;--term:#050b16;--term-ink:#cfe3ff;--term-accent:#5cc8ff}
+}
+:root[data-theme="dark"]{--bg:#0a1424;--panel:#111f36;--ink:#e3edfb;--muted:#92a7c6;--line:#22365a;--accent:#5cc8ff;--accent-ink:#0a1424;--term:#050b16;--term-ink:#cfe3ff;--term-accent:#5cc8ff}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.05rem/1.65 var(--display);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:64rem;margin:0 auto;padding:0 1.5rem}
+nav{display:flex;justify-content:space-between;gap:1rem;padding:1.5rem 0;font:700 1rem var(--mono)}
+nav div{display:flex;gap:1.5rem}
+nav a{text-decoration:none}
+nav a:hover{color:var(--accent)}
+.hero{display:grid;gap:2.5rem;padding:clamp(2rem,7vw,5rem) 0 4rem}
+.hero h1{margin:0;font:700 clamp(2.6rem,9vw,5.5rem)/.98 var(--display);letter-spacing:-.04em}
+.hero .role{margin:1.25rem 0 0;font:400 1.1rem var(--mono);color:var(--accent)}
+.hero p.lead{max-width:34rem;margin:1.25rem 0 0;font-size:1.2rem;color:var(--muted)}
+.term{background:var(--term);color:var(--term-ink);border-radius:.6rem;overflow:hidden;font:400 .95rem/1.7 var(--mono);box-shadow:0 0 0 1px var(--line)}
+.term-bar{display:flex;gap:.4rem;padding:.7rem .9rem;background:rgba(255,255,255,.06)}
+.term-bar i{width:.7rem;height:.7rem;border-radius:50%;background:#44546e}
+.term-body{padding:1rem 1.1rem 1.2rem;overflow-x:auto;white-space:pre}
+.term .p{color:var(--term-accent)}
+.term .k{color:#8aa4c8}
+.cursor{display:inline-block;width:.6ch;height:1.1em;background:var(--term-accent);vertical-align:text-bottom;animation:blink 1.1s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2{margin:0 0 1.75rem;font:700 1rem var(--mono);color:var(--accent)}
+.about p{margin:0;max-width:40rem;font-size:1.2rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.skill{padding:1.25rem;background:var(--panel);border-left:3px solid var(--accent);border-radius:.25rem}
+.skill h3{margin:0 0 .35rem;font:700 1.15rem var(--display)}
+.skill p{margin:0;color:var(--muted);font:400 .9rem/1.6 var(--mono)}
+.work a{display:grid;gap:.2rem 2rem;padding:1.4rem 0;border-bottom:1px solid var(--line);text-decoration:none}
+.work a:first-of-type{border-top:1px solid var(--line)}
+.work h3{margin:0;font:700 1.5rem/1.2 var(--display);letter-spacing:-.02em}
+.work p{margin:0;color:var(--muted)}
+.work .tags{font:400 .85rem var(--mono);color:var(--accent)}
+.work a:hover h3{color:var(--accent)}
+.certs{display:flex;flex-wrap:wrap;gap:.75rem}
+.certs span{padding:.5rem .9rem;border:1px solid var(--line);border-radius:2rem;font:400 .9rem var(--mono)}
+.contact p{max-width:34rem;margin:0 0 1.5rem}
+.btn{display:inline-block;padding:.9rem 1.6rem;background:var(--accent);color:var(--accent-ink);font:700 1rem var(--mono);border-radius:.4rem;text-decoration:none}
+.btn:hover{filter:brightness(1.1)}
+footer{padding:2rem 0 3rem;color:var(--muted);font:400 .85rem var(--mono);border-top:1px solid var(--line)}
+@media(min-width:56rem){
+  .hero{grid-template-columns:1.1fr 1fr;align-items:center}
+  .work a{grid-template-columns:1.2fr 1.5fr auto;align-items:baseline}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cursor{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Main">
+    <a href="#top">wjc@portfolio:~$</a>
+    <div><a href="#about">about</a><a href="#skills">skills</a><a href="#work">projects</a><a href="#contact">contact</a></div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <h1>Wendell James Collado</h1>
+      <p class="role">IT Specialist: systems, networks, support</p>
+      <p class="lead">I keep systems running, secure and easy to use. Below is my skill set and a few projects I’ve worked on.</p>
+    </div>
+    <div class="term" role="img" aria-label="Terminal showing name, role and focus areas">
+      <div class="term-bar"><i></i><i></i><i></i></div>
+      <div class="term-body"><span class="p">$</span> whoami
+wendell.collado
+<span class="p">$</span> cat focus.txt
+<span class="k">-</span> Network &amp; server administration
+<span class="k">-</span> Cloud &amp; virtualization
+<span class="k">-</span> Cybersecurity basics
+<span class="k">-</span> User support &amp; documentation
+<span class="p">$</span> <span class="cursor"></span></div>
+    </div>
+  </header>
+
+  <section id="about" class="about">
+    <h2>/about</h2>
+    <p>Hi, I’m Wendell. I work in IT, solving technical problems and making technology dependable for the people who rely on it. Replace this with a few sentences about your experience, the environments you’ve worked in, and the role you’re looking for.</p>
+  </section>
+
+  <section id="skills">
+    <h2>/skills</h2>
+    <div class="skills">
+      <div class="skill"><h3>Networking</h3><p>TCP/IP, DNS, DHCP, VLANs, VPN, routers and switches</p></div>
+      <div class="skill"><h3>Systems</h3><p>Windows Server, Linux, Active Directory, virtualization</p></div>
+      <div class="skill"><h3>Cloud</h3><p>AWS, Azure, Microsoft 365, backups and recovery</p></div>
+      <div class="skill"><h3>Security</h3><p>Access control, patching, endpoint protection, awareness</p></div>
+      <div class="skill"><h3>Support</h3><p>Troubleshooting, ticketing, hardware, documentation</p></div>
+      <div class="skill"><h3>Scripting</h3><p>PowerShell, Bash, Python for everyday automation</p></div>
+    </div>
+  </section>
+
+  <section id="work" class="work">
+    <h2>/projects</h2>
+    <a href="#contact"><h3>Office network upgrade</h3><p>Redesigned a small-office network with VLANs and a managed firewall.</p><span class="tags">networking, security</span></a>
+    <a href="#contact"><h3>Helpdesk automation</h3><p>Scripted account setup and password resets, cutting ticket time.</p><span class="tags">powershell, ad</span></a>
+    <a href="#contact"><h3>Home lab</h3><p>Virtual servers for testing Linux, Windows and cloud setups.</p><span class="tags">virtualization, linux</span></a>
+  </section>
+
+  <section id="certs">
+    <h2>/certifications</h2>
+    <div class="certs"><span>CompTIA A+</span><span>CompTIA Network+</span><span>Add your own</span></div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>/contact</h2>
+    <p>Hiring, or need IT help with a project? Send me a message and I’ll get back to you.</p>
+    <a class="btn" href="mailto:you@example.com">Email Wendell</a>
+  </section>
+
+  <footer>© 2026 Wendell James Collado</footer>
+</div>
+</body>
+</html>
