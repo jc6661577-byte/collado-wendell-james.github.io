@@ -48,7 +48,6 @@ h1 span{display:block;background:linear-gradient(90deg,var(--teal),var(--violet)
 .box:hover{background:#10264a}
 @media(min-width:62rem){.hero{grid-template-columns:1fr 1.1fr}}
 @media(max-width:40rem){.c1{left:0}.c2{right:0}.type{font-size:1.2rem}}
-@media(prefers-reduced-motion:reduce){.type::after{animation:none}}
 </style>
 </head>
 <body>
@@ -62,69 +61,4 @@ h1 span{display:block;background:linear-gradient(90deg,var(--teal),var(--violet)
 <main id="top">
   <section class="hero">
     <div class="photo">
-      <div class="ring"><div><img src="photo.jpg" alt="Photo of Wendell James Collado"></div></div>
-      <span class="chip c1">Networking</span>
-      <span class="chip c2">Security</span>
-    </div>
-    <div>
-      <p class="hello">&gt; hello_world</p>
-      <h1>Wendell James <span>Collado</span></h1>
-      <p class="type" id="type" aria-label="Willing to Learn"></p>
-      <ul class="tags"><li>BSIT</li><li>Networking</li><li>Security</li><li>1st Year</li></ul>
-      <div class="contact">
-        <a class="box" href="mailto:jc6661577@gmail.com"><small>EMAIL</small>jc6661577@gmail.com</a>
-        <a class="box" href="tel:+639501753925"><small>PHONE</small>0950 175 3925</a>
-      </div>
-    </div>
-  </section>
-</main>
-<script>
-(function(){
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var el = document.getElementById("type");
-  var words = ["Willing to Learn", "BSIT Student", "Network and Security"];
-  var w = 0, i = 0, deleting = false;
-  if (reduce) { el.textContent = words[0]; }
-  else {
-    (function tick(){
-      var word = words[w];
-      if (!deleting) {
-        i++;
-        el.textContent = word.slice(0, i);
-        if (i === word.length) { deleting = true; return setTimeout(tick, 1500); }
-        setTimeout(tick, 90);
-      } else {
-        i--;
-        el.textContent = word.slice(0, i);
-        if (i === 0) { deleting = false; w = (w + 1) % words.length; return setTimeout(tick, 400); }
-        setTimeout(tick, 45);
-      }
-    })();
-  }
-
-  var c = document.getElementById("net"), x = c.getContext("2d"), pts = [], W, H;
-  function size(){
-    W = c.width = innerWidth; H = c.height = innerHeight;
-    var n = Math.min(70, Math.floor(W * H / 20000));
-    pts = [];
-    for (var k = 0; k < n; k++) pts.push({x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-.5)*.25, vy: (Math.random()-.5)*.25});
-  }
-  function draw(){
-    x.clearRect(0, 0, W, H);
-    for (var a = 0; a < pts.length; a++){
-      var p = pts[a];
-      if (!reduce){ p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1; }
-      for (var b = a + 1; b < pts.length; b++){
-        var q = pts[b], d = Math.hypot(p.x - q.x, p.y - q.y);
-        if (d < 150){ x.strokeStyle = "rgba(34,211,238," + (0.18 * (1 - d/150)) + ")"; x.beginPath(); x.moveTo(p.x, p.y); x.lineTo(q.x, q.y); x.stroke(); }
-      }
-      x.fillStyle = "rgba(34,211,238,.7)"; x.beginPath(); x.arc(p.x, p.y, 2, 0, 6.283); x.fill();
-    }
-    if (!reduce) requestAnimationFrame(draw);
-  }
-  size(); draw();
-  addEventListener("resize", function(){ size(); if (reduce) draw(); });
-})();
-</script>
-</body>
-</html>
+      <div class="ring"><div><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5Ojf/2wBDAQoKCg0MDRoPDxo3JR8lNzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzf/wAARCAFAAUADASIAAhEBAxEB/8QAHAABAAEFAQEAAAAAAAAAAAAAAAQBAgMFBwYI/8QARBAAAgEDAgQEAwYEAgUNAAAAAAECAwQRBSEGEjFBBxNRYSJxgRQjMkKRoRVSYsEzsRZDU4LRJDVEcnN0kpOissLh8f/EABkBAQEBAQEBAAAAAAAAAAAAAAABAgMEBf/EAB0RAQEBAAMBAQEBAAAAAAAAAAABAgMRITESQSL/2gAMAwEAAhEDEQA/AO4gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFMoCoMfnU/54/wDiRG1DVbDTaKrX95Qt6cpKKnVqKKbfYCaDTU+KtAqvFPWLGT9qyZn/AI/pGP8AnG1/81E7i9VsgaqXEmix/FqlmvnWRjfFWgJ4esWOf+3Re06bkEa01CzvLeFxaXNGtRqLMKkJpqS9mZlVpt4U4tv+pAXgpkqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACmQKgoAKlG8IFleXJRnPGeWLePUDj/AIn+JOsaRqy0/RJU6MVF89SpSUnL5Z6HNbXiviu8qOnS4g1VpdX9oZF4svq+qcR3teo1OpUqyjHl3SSeEkeg0PSlbW0W0ud7sxvf5jpx4/VRtM0WUEpVZzcnu8zf/E9Jp+l0JxxWgqi9JNv/ADK06WFsjZWUVGOTya3a92ePMUjY29DCoUYQ+SNja0FJbxX6GBRzLqbO0ShjJjut9SL/AOE2lzBxqUINvvg83rPDda3lKVrSp+W+/oe2oSi10KXVFV6bTWV3OuNWOG5K4Xr9jO3mo8ri1/LJr/Jmss61azqxr0K9WnWpz5oVI1Jc0JLo1v1Ok8Q6LCvXnGnFrC
