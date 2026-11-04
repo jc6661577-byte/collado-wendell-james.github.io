@@ -81,9 +81,26 @@ h1 span{display:block;background:linear-gradient(90deg,var(--teal),var(--violet)
 <script>
 (function(){
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var el = document.getElementById("type"), text = "Willing to Learn", i = 0;
-  if (reduce) { el.textContent = text; }
-  else { (function t(){ el.textContent = text.slice(0, ++i); if (i < text.length) setTimeout(t, 110); })(); }
+  var el = document.getElementById("type");
+  var words = ["Willing to Learn", "BSIT Student", "Network and Security"];
+  var w = 0, i = 0, deleting = false;
+  if (reduce) { el.textContent = words[0]; }
+  else {
+    (function tick(){
+      var word = words[w];
+      if (!deleting) {
+        i++;
+        el.textContent = word.slice(0, i);
+        if (i === word.length) { deleting = true; return setTimeout(tick, 1500); }
+        setTimeout(tick, 90);
+      } else {
+        i--;
+        el.textContent = word.slice(0, i);
+        if (i === 0) { deleting = false; w = (w + 1) % words.length; return setTimeout(tick, 400); }
+        setTimeout(tick, 45);
+      }
+    })();
+  }
 
   var c = document.getElementById("net"), x = c.getContext("2d"), pts = [], W, H;
   function size(){
