@@ -2,134 +2,112 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Wendell James Collado — IT Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wendell James Collado</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f3f6fb; --panel:#e4ebf5; --ink:#0d1b2e; --muted:#4a5d78; --line:#c5d2e4; --accent:#0b6bcb; --accent-ink:#ffffff; --term:#0d1b2e; --term-ink:#cfe3ff; --term-accent:#5cc8ff;
-  --display:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --bg:#070d1c; --panel:#0c1a33; --ink:#e9eefc; --muted:#9db0d3; --line:#1b3158;
+  --teal:#22d3ee; --green:#34d399; --blue:#3b82f6; --violet:#8b5cf6;
+  --sans:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:dark;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#0a1424;--panel:#111f36;--ink:#e3edfb;--muted:#92a7c6;--line:#22365a;--accent:#5cc8ff;--accent-ink:#0a1424;--term:#050b16;--term-ink:#cfe3ff;--term-accent:#5cc8ff}
-}
-:root[data-theme="dark"]{--bg:#0a1424;--panel:#111f36;--ink:#e3edfb;--muted:#92a7c6;--line:#22365a;--accent:#5cc8ff;--accent-ink:#0a1424;--term:#050b16;--term-ink:#cfe3ff;--term-accent:#5cc8ff}
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:1.05rem/1.65 var(--display);-webkit-font-smoothing:antialiased}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:radial-gradient(ellipse at 80% 0%,#10224a 0%,var(--bg) 55%);color:var(--ink);font:1.05rem/1.6 var(--sans);overflow-x:hidden}
+canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 a{color:inherit}
-a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.wrap{max-width:64rem;margin:0 auto;padding:0 1.5rem}
-nav{display:flex;justify-content:space-between;gap:1rem;padding:1.5rem 0;font:700 1rem var(--mono)}
-nav div{display:flex;gap:1.5rem}
-nav a{text-decoration:none}
-nav a:hover{color:var(--accent)}
-.hero{display:grid;gap:2.5rem;padding:clamp(2rem,7vw,5rem) 0 4rem}
-.hero h1{margin:0;font:700 clamp(2.6rem,9vw,5.5rem)/.98 var(--display);letter-spacing:-.04em}
-.hero .role{margin:1.25rem 0 0;font:400 1.1rem var(--mono);color:var(--accent)}
-.hero p.lead{max-width:34rem;margin:1.25rem 0 0;font-size:1.2rem;color:var(--muted)}
-.term{background:var(--term);color:var(--term-ink);border-radius:.6rem;overflow:hidden;font:400 .95rem/1.7 var(--mono);box-shadow:0 0 0 1px var(--line)}
-.term-bar{display:flex;gap:.4rem;padding:.7rem .9rem;background:rgba(255,255,255,.06)}
-.term-bar i{width:.7rem;height:.7rem;border-radius:50%;background:#44546e}
-.term-body{padding:1rem 1.1rem 1.2rem;overflow-x:auto;white-space:pre}
-.term .p{color:var(--term-accent)}
-.term .k{color:#8aa4c8}
-.cursor{display:inline-block;width:.6ch;height:1.1em;background:var(--term-accent);vertical-align:text-bottom;animation:blink 1.1s steps(2,start) infinite}
+a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+header,main{position:relative;z-index:1}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1rem clamp(1.25rem,6vw,6rem);border-bottom:1px solid var(--line);background:rgba(7,13,28,.7);backdrop-filter:blur(6px)}
+.logo{font:700 1.4rem var(--mono);text-decoration:none}
+.logo span{color:var(--teal)}
+nav a.home{text-decoration:none;padding:.3rem 0;border-bottom:2px solid var(--teal)}
+.hero{min-height:calc(100vh - 4.2rem);display:grid;align-items:center;gap:3rem;padding:3rem clamp(1.25rem,6vw,6rem)}
+.photo{position:relative;justify-self:center;width:min(78vw,29rem)}
+.ring{padding:7px;border-radius:50%;background:linear-gradient(140deg,var(--green),var(--blue) 60%,var(--violet));box-shadow:0 0 60px rgba(59,130,246,.25)}
+.ring div{border-radius:50%;background:#fff;aspect-ratio:1;overflow:hidden;border:8px solid var(--bg)}
+.ring img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.chip{position:absolute;padding:.55rem 1rem;border:1px solid #1d4a73;border-radius:.6rem;background:rgba(8,20,44,.92);font:400 .95rem var(--mono)}
+.c1{top:11%;left:-4%;color:var(--teal)}
+.c2{bottom:8%;right:-4%;color:var(--green)}
+.hello{margin:0 0 .5rem;font:400 1.05rem var(--mono);color:var(--green)}
+h1{margin:0;font:700 clamp(2.7rem,8vw,5.2rem)/1.05 var(--sans);letter-spacing:-.03em}
+h1 span{display:block;background:linear-gradient(90deg,var(--teal),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;width:fit-content}
+.type{margin:1.5rem 0;min-height:2rem;font:400 1.5rem var(--mono);color:var(--teal)}
+.type::after{content:"";display:inline-block;width:.1em;height:1em;margin-left:.15em;background:var(--teal);vertical-align:-.12em;animation:blink 1s steps(2,start) infinite}
 @keyframes blink{to{visibility:hidden}}
-section{padding:3.5rem 0;border-top:1px solid var(--line)}
-h2{margin:0 0 1.75rem;font:700 1rem var(--mono);color:var(--accent)}
-.about p{margin:0;max-width:40rem;font-size:1.2rem}
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
-.skill{padding:1.25rem;background:var(--panel);border-left:3px solid var(--accent);border-radius:.25rem}
-.skill h3{margin:0 0 .35rem;font:700 1.15rem var(--display)}
-.skill p{margin:0;color:var(--muted);font:400 .9rem/1.6 var(--mono)}
-.work a{display:grid;gap:.2rem 2rem;padding:1.4rem 0;border-bottom:1px solid var(--line);text-decoration:none}
-.work a:first-of-type{border-top:1px solid var(--line)}
-.work h3{margin:0;font:700 1.5rem/1.2 var(--display);letter-spacing:-.02em}
-.work p{margin:0;color:var(--muted)}
-.work .tags{font:400 .85rem var(--mono);color:var(--accent)}
-.work a:hover h3{color:var(--accent)}
-.certs{display:flex;flex-wrap:wrap;gap:.75rem}
-.certs span{padding:.5rem .9rem;border:1px solid var(--line);border-radius:2rem;font:400 .9rem var(--mono)}
-.contact p{max-width:34rem;margin:0 0 1.5rem}
-.btn{display:inline-block;padding:.9rem 1.6rem;background:var(--accent);color:var(--accent-ink);font:700 1rem var(--mono);border-radius:.4rem;text-decoration:none}
-.btn:hover{filter:brightness(1.1)}
-footer{padding:2rem 0 3rem;color:var(--muted);font:400 .85rem var(--mono);border-top:1px solid var(--line)}
-@media(min-width:56rem){
-  .hero{grid-template-columns:1.1fr 1fr;align-items:center}
-  .work a{grid-template-columns:1.2fr 1.5fr auto;align-items:baseline}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cursor{animation:none}}
+.tags{display:flex;flex-wrap:wrap;gap:.7rem;padding:0;margin:0 0 2rem;list-style:none}
+.tags li{padding:.5rem 1.1rem;border:1px solid #1d4a73;border-radius:2rem;background:rgba(12,26,51,.8);font-size:1rem}
+.contact{display:flex;flex-wrap:wrap;gap:1rem}
+.box{display:block;min-width:14rem;padding:.9rem 1.2rem;border-left:3px solid var(--teal);background:var(--panel);text-decoration:none}
+.box small{display:block;font:400 .78rem var(--mono);letter-spacing:.12em;color:var(--muted)}
+.box:hover{background:#10264a}
+@media(min-width:62rem){.hero{grid-template-columns:1fr 1.1fr}}
+@media(max-width:40rem){.c1{left:0}.c2{right:0}.type{font-size:1.2rem}}
+@media(prefers-reduced-motion:reduce){.type::after{animation:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
+<canvas id="net" aria-hidden="true"></canvas>
+<header>
   <nav aria-label="Main">
-    <a href="#top">wjc@portfolio:~$</a>
-    <div><a href="#about">about</a><a href="#skills">skills</a><a href="#work">projects</a><a href="#contact">contact</a></div>
+    <a class="logo" href="#top">WJC<span>_</span></a>
+    <a class="home" href="#top">Home</a>
   </nav>
-
-  <header class="hero" id="top">
+</header>
+<main id="top">
+  <section class="hero">
+    <div class="photo">
+      <div class="ring"><div><img src="photo.jpg" alt="Photo of Wendell James Collado"></div></div>
+      <span class="chip c1">Networking</span>
+      <span class="chip c2">Security</span>
+    </div>
     <div>
-      <h1>Wendell James Collado</h1>
-      <p class="role">IT Specialist: systems, networks, support</p>
-      <p class="lead">I keep systems running, secure and easy to use. Below is my skill set and a few projects I’ve worked on.</p>
-    </div>
-    <div class="term" role="img" aria-label="Terminal showing name, role and focus areas">
-      <div class="term-bar"><i></i><i></i><i></i></div>
-      <div class="term-body"><span class="p">$</span> whoami
-wendell.collado
-<span class="p">$</span> cat focus.txt
-<span class="k">-</span> Network &amp; server administration
-<span class="k">-</span> Cloud &amp; virtualization
-<span class="k">-</span> Cybersecurity basics
-<span class="k">-</span> User support &amp; documentation
-<span class="p">$</span> <span class="cursor"></span></div>
-    </div>
-  </header>
-
-  <section id="about" class="about">
-    <h2>/about</h2>
-    <p>Hi, I’m Wendell. I work in IT, solving technical problems and making technology dependable for the people who rely on it. Replace this with a few sentences about your experience, the environments you’ve worked in, and the role you’re looking for.</p>
-  </section>
-
-  <section id="skills">
-    <h2>/skills</h2>
-    <div class="skills">
-      <div class="skill"><h3>Networking</h3><p>TCP/IP, DNS, DHCP, VLANs, VPN, routers and switches</p></div>
-      <div class="skill"><h3>Systems</h3><p>Windows Server, Linux, Active Directory, virtualization</p></div>
-      <div class="skill"><h3>Cloud</h3><p>AWS, Azure, Microsoft 365, backups and recovery</p></div>
-      <div class="skill"><h3>Security</h3><p>Access control, patching, endpoint protection, awareness</p></div>
-      <div class="skill"><h3>Support</h3><p>Troubleshooting, ticketing, hardware, documentation</p></div>
-      <div class="skill"><h3>Scripting</h3><p>PowerShell, Bash, Python for everyday automation</p></div>
+      <p class="hello">&gt; hello_world</p>
+      <h1>Wendell James <span>Collado</span></h1>
+      <p class="type" id="type" aria-label="Willing to Learn"></p>
+      <ul class="tags"><li>BSIT</li><li>Networking</li><li>Security</li><li>1st Year</li></ul>
+      <div class="contact">
+        <a class="box" href="mailto:jc6661577@gmail.com"><small>EMAIL</small>jc6661577@gmail.com</a>
+        <a class="box" href="tel:+639501753925"><small>PHONE</small>0950 175 3925</a>
+      </div>
     </div>
   </section>
+</main>
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var el = document.getElementById("type"), text = "Willing to Learn", i = 0;
+  if (reduce) { el.textContent = text; }
+  else { (function t(){ el.textContent = text.slice(0, ++i); if (i < text.length) setTimeout(t, 110); })(); }
 
-  <section id="work" class="work">
-    <h2>/projects</h2>
-    <a href="#contact"><h3>Office network upgrade</h3><p>Redesigned a small-office network with VLANs and a managed firewall.</p><span class="tags">networking, security</span></a>
-    <a href="#contact"><h3>Helpdesk automation</h3><p>Scripted account setup and password resets, cutting ticket time.</p><span class="tags">powershell, ad</span></a>
-    <a href="#contact"><h3>Home lab</h3><p>Virtual servers for testing Linux, Windows and cloud setups.</p><span class="tags">virtualization, linux</span></a>
-  </section>
-
-  <section id="certs">
-    <h2>/certifications</h2>
-    <div class="certs"><span>CompTIA A+</span><span>CompTIA Network+</span><span>Add your own</span></div>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2>/contact</h2>
-    <p>Hiring, or need IT help with a project? Send me a message and I’ll get back to you.</p>
-    <a class="btn" href="mailto:you@example.com">Email Wendell</a>
-  </section>
-
-  <footer>© 2026 Wendell James Collado</footer>
-</div>
+  var c = document.getElementById("net"), x = c.getContext("2d"), pts = [], W, H;
+  function size(){
+    W = c.width = innerWidth; H = c.height = innerHeight;
+    var n = Math.min(70, Math.floor(W * H / 20000));
+    pts = [];
+    for (var k = 0; k < n; k++) pts.push({x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-.5)*.25, vy: (Math.random()-.5)*.25});
+  }
+  function draw(){
+    x.clearRect(0, 0, W, H);
+    for (var a = 0; a < pts.length; a++){
+      var p = pts[a];
+      if (!reduce){ p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1; }
+      for (var b = a + 1; b < pts.length; b++){
+        var q = pts[b], d = Math.hypot(p.x - q.x, p.y - q.y);
+        if (d < 150){ x.strokeStyle = "rgba(34,211,238," + (0.18 * (1 - d/150)) + ")"; x.beginPath(); x.moveTo(p.x, p.y); x.lineTo(q.x, q.y); x.stroke(); }
+      }
+      x.fillStyle = "rgba(34,211,238,.7)"; x.beginPath(); x.arc(p.x, p.y, 2, 0, 6.283); x.fill();
+    }
+    if (!reduce) requestAnimationFrame(draw);
+  }
+  size(); draw();
+  addEventListener("resize", function(){ size(); if (reduce) draw(); });
+})();
+</script>
 </body>
 </html>
