@@ -16,6 +16,7 @@
   color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
 html,body{margin:0;min-height:100%}
 body{background:radial-gradient(ellipse at 80% 0%,#10224a 0%,var(--bg) 55%);color:var(--ink);font:1.05rem/1.6 var(--sans);overflow-x:hidden}
 canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
@@ -25,7 +26,9 @@ header,main{position:relative;z-index:1}
 nav{display:flex;justify-content:space-between;align-items:center;padding:1rem clamp(1.25rem,6vw,6rem);border-bottom:1px solid var(--line);background:rgba(7,13,28,.7);backdrop-filter:blur(6px)}
 .logo{font:700 1.4rem var(--mono);text-decoration:none}
 .logo span{color:var(--teal)}
-nav a.home{text-decoration:none;padding:.3rem 0;border-bottom:2px solid var(--teal)}
+.navlinks{display:flex;gap:2rem}
+nav .navlinks a{text-decoration:none;padding:.3rem 0;border-bottom:2px solid transparent}
+nav .navlinks a.active,nav .navlinks a:hover{border-bottom-color:var(--teal)}
 .hero{min-height:calc(100vh - 4.2rem);display:grid;align-items:center;gap:3rem;padding:3rem clamp(1.25rem,6vw,6rem)}
 .photo{position:relative;justify-self:center;width:min(78vw,29rem)}
 .ring{padding:7px;border-radius:50%;background:linear-gradient(140deg,var(--green),var(--blue) 60%,var(--violet));box-shadow:0 0 60px rgba(59,130,246,.25)}
@@ -46,22 +49,24 @@ h1 span{display:block;background:linear-gradient(90deg,var(--teal),var(--violet)
 .box{display:block;min-width:14rem;padding:.9rem 1.2rem;border-left:3px solid var(--teal);background:var(--panel);text-decoration:none}
 .box small{display:block;font:400 .78rem var(--mono);letter-spacing:.12em;color:var(--muted)}
 .box:hover{background:#10264a}
+.next{display:inline-block;margin-top:1.75rem;padding:.8rem 1.4rem;border:1px solid var(--teal);border-radius:.4rem;color:var(--teal);font:700 1rem var(--mono);text-decoration:none}
+.next:hover{background:var(--teal);color:var(--bg)}
 @media(min-width:62rem){.hero{grid-template-columns:1fr 1.1fr}}
-@media(max-width:40rem){.c1{left:0}.c2{right:0}.type{font-size:1.2rem}}
+@media(max-width:40rem){.c1{left:0}.c2{right:0}.type{font-size:1.2rem}.navlinks{gap:1rem}}
 </style>
 </head>
 <body>
 <canvas id="net" aria-hidden="true"></canvas>
 <header>
   <nav aria-label="Main">
-    <a class="logo" href="#top">WJC<span>_</span></a>
-    <a class="home" href="#top">Home</a>
+    <a class="logo" href="index.html">WJC<span>_</span></a>
+    <div class="navlinks"><a class="active" href="index.html">Cover</a><a href="biography.html">Introduction</a></div>
   </nav>
 </header>
-<main id="top">
+<main>
   <section class="hero">
     <div class="photo">
-      <div class="ring"><div><img src="photo.jpg.jpg"alt="Photo of Wendell James Collado"></div></div>
+      <div class="ring"><div><img id="me" alt="Photo of Wendell James Collado"></div></div>
       <span class="chip c1">Networking</span>
       <span class="chip c2">Security</span>
     </div>
@@ -74,11 +79,18 @@ h1 span{display:block;background:linear-gradient(90deg,var(--teal),var(--violet)
         <a class="box" href="mailto:jc6661577@gmail.com"><small>EMAIL</small>jc6661577@gmail.com</a>
         <a class="box" href="tel:+639501753925"><small>PHONE</small>0950 175 3925</a>
       </div>
+      <a class="next" href="biography.html">Go to Introduction &rarr;</a>
     </div>
   </section>
 </main>
 <script>
 (function(){
+  var me = document.getElementById("me");
+  var names = ["photo.jpg", "photo.jpg.jpg", "photo%20(1).jpg", "photo.JPG", "photo.jpeg", "photo.png"];
+  var k = 0;
+  me.onerror = function(){ k++; if (k < names.length) { me.src = names[k]; } };
+  me.src = names[0];
+
   var el = document.getElementById("type");
   var words = ["Willing to Learn", "BSIT Student", "Network and Security"];
   var w = 0, i = 0, deleting = false;
@@ -102,7 +114,7 @@ h1 span{display:block;background:linear-gradient(90deg,var(--teal),var(--violet)
     W = c.width = innerWidth; H = c.height = innerHeight;
     var n = Math.min(70, Math.floor(W * H / 20000));
     pts = [];
-    for (var k = 0; k < n; k++) pts.push({x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-.5)*.25, vy: (Math.random()-.5)*.25});
+    for (var j = 0; j < n; j++) pts.push({x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-.5)*.25, vy: (Math.random()-.5)*.25});
   }
   function draw(){
     x.clearRect(0, 0, W, H);
