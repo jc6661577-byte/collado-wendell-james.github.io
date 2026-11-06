@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Introduction | Wendell James Collado</title>
+<title>Personal Information | Wendell James Collado</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -17,6 +17,8 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
+html{scroll-behavior:smooth}
+.facts{scroll-margin-top:5rem}
 body{background:radial-gradient(ellipse at 80% 0%,#10224a 0%,var(--bg) 55%);color:var(--ink);font:1.05rem/1.6 var(--sans);overflow-x:hidden}
 canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 a{color:inherit}
@@ -33,7 +35,8 @@ nav .navlinks a.active,nav .navlinks a:hover{border-bottom-color:var(--teal)}
 .intro h3{margin:0 0 1.25rem;font:700 clamp(2.2rem,6vw,3.8rem)/1.08 var(--sans);letter-spacing:-.03em}
 .intro p{margin:0 0 1rem;max-width:40rem;color:var(--muted);font-size:1.2rem}
 .side{display:grid;gap:1.5rem;justify-items:start}
-.photo{width:min(60vw,15rem)}
+.photo{display:block;width:min(60vw,15rem);transition:transform .2s}
+.photo:hover{transform:scale(1.04)}
 .ring{padding:6px;border-radius:50%;background:linear-gradient(140deg,var(--green),var(--blue) 60%,var(--violet));box-shadow:0 0 50px rgba(59,130,246,.25)}
 .ring div{border-radius:50%;background:#fff;aspect-ratio:1;overflow:hidden;border:6px solid var(--bg)}
 .ring img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
@@ -42,6 +45,8 @@ nav .navlinks a.active,nav .navlinks a:hover{border-bottom-color:var(--teal)}
 .fact small{display:block;font:400 .78rem var(--mono);letter-spacing:.12em;color:var(--muted)}
 .back{display:inline-block;margin-top:1.25rem;padding:.8rem 1.4rem;border:1px solid var(--teal);border-radius:.4rem;color:var(--teal);font:700 1rem var(--mono);text-decoration:none}
 .back:hover{background:var(--teal);color:var(--bg)}
+.buttons{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.25rem}
+.buttons .back{margin-top:0}
 @media(min-width:62rem){.intro{grid-template-columns:1.3fr 1fr}}
 @media(max-width:40rem){.navlinks{gap:1rem}}
 </style>
@@ -51,25 +56,33 @@ nav .navlinks a.active,nav .navlinks a:hover{border-bottom-color:var(--teal)}
 <header>
   <nav aria-label="Main">
     <a class="logo" href="index.html">WJC<span>_</span></a>
-    <div class="navlinks"><a href="index.html">Cover</a><a class="active" href="biography.html">Introduction</a></div>
+    <div class="navlinks"><a href="index.html">Cover</a><a class="active" href="biography.html">Personal Information</a></div>
   </nav>
 </header>
 <main>
   <section class="intro">
     <div>
-      <h2>&gt; introduction</h2>
+      <h2>&gt; personal_information</h2>
       <h3>About Wendell</h3>
-      <p>Hi, I'm Wendell James Collado, a first-year BSIT student studying at the University of the Cordilleras.</p>
-      <p>I'm interested in networking and security, and I'm always willing to learn. I want to keep building my skills one step at a time so I can grow into a capable IT professional.</p>
-      <a class="back" href="index.html">&larr; Back to cover</a>
+      <p>Hi, I'm Wendell James Collado, a first-year BSIT student at the University of the Cordilleras, College of Information Technology and Computer Science (CITCS).</p>
+      <p>I'm interested in computers, and I'm always willing to learn. Outside class, I enjoy gaming, playing basketball, and learning how to code. I want to keep building my skills one step at a time so I can grow into a capable IT professional.</p>
+      <div class="buttons">
+        <a class="back" href="index.html">&larr; Back to cover</a>
+        <a class="back" href="#personal-info">Personal information &darr;</a>
+      </div>
     </div>
     <div class="side">
-      <div class="photo"><div class="ring"><div><img id="me" alt="Photo of Wendell James Collado"></div></div></div>
-      <div class="facts">
+      <a class="photo" href="index.html" title="Back to cover" aria-label="Back to cover"><div class="ring"><div><img id="me" alt="Photo of Wendell James Collado"></div></div></a>
+      <div class="facts" id="personal-info">
         <div class="fact"><small>NAME</small>Wendell James Collado</div>
-        <div class="fact"><small>COURSE</small>BSIT, 1st Year</div>
+        <div class="fact"><small>COURSE</small>BS Information Technology, 1st Year</div>
         <div class="fact"><small>SCHOOL</small>University of the Cordilleras</div>
-        <div class="fact"><small>INTERESTS</small>Networking, Security</div>
+        <div class="fact"><small>INTERESTS</small>Computers</div>
+        <div class="fact"><small>HOBBIES</small>Gaming, Basketball, Learning to code</div>
+        <div class="fact"><small>LANGUAGES</small>English, Filipino, Ilocano</div>
+        <div class="fact"><small>BIRTHDAY</small>June 23, 2008</div>
+        <div class="fact"><small>LOCATION</small>#51 Padre Zamora, Baguio City</div>
+        <div class="fact"><small>MOTTO</small>Try and try until you succeed</div>
         <div class="fact"><small>EMAIL</small>jc6661577@gmail.com</div>
       </div>
     </div>
