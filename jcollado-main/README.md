@@ -1,1 +1,0 @@
-# collado-wendell-james.github.io
