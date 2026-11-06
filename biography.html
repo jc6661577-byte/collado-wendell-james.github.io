@@ -49,6 +49,48 @@ nav .navlinks a.active,nav .navlinks a:hover{border-bottom-color:var(--teal)}
 .buttons .back{margin-top:0}
 @media(min-width:62rem){.intro{grid-template-columns:1.3fr 1fr}}
 @media(max-width:40rem){.navlinks{gap:1rem}}
+/* never scrolls: everything is sized to the screen on every device */
+html,body{height:100%}
+body{height:100dvh;display:flex;flex-direction:column;overflow:hidden;font-size:clamp(.7rem,1.9vh,1.05rem);line-height:1.4}
+header{flex:none}
+nav{padding-block:clamp(.4rem,1.4vh,1rem)}
+.logo{font-size:clamp(1rem,2.6vh,1.4rem)}
+.navlinks{gap:clamp(.8rem,3vw,2rem)}
+main{flex:1;min-height:0}
+.intro{min-height:0;height:100%;align-content:center;gap:clamp(.5rem,2vh,3rem);padding:clamp(.5rem,2vh,2rem) clamp(1rem,6vw,6rem)}
+.intro h2{margin-bottom:.3rem;font-size:clamp(.75rem,1.9vh,1.05rem)}
+.intro h3{font-size:clamp(1.6rem,min(6vh,9vw),3.8rem);margin-bottom:clamp(.3rem,1.5vh,1.25rem)}
+.intro p{font-size:clamp(.72rem,min(2vh,3.4vw),1.2rem);margin-bottom:.5rem}
+.buttons{margin-top:clamp(.4rem,1.5vh,1.25rem)}
+.back{padding:clamp(.4rem,1.2vh,.8rem) clamp(.8rem,2vw,1.4rem);font-size:clamp(.72rem,1.8vh,1rem)}
+.side{gap:clamp(.4rem,1.6vh,1.5rem)}
+.photo{width:clamp(3.5rem,11vh,11rem)}
+.ring{padding:4px}
+.ring div{border-width:4px}
+.facts{grid-template-columns:repeat(2,1fr);gap:clamp(.3rem,1vh,.8rem)}
+.fact{padding:clamp(.25rem,.9vh,.7rem) clamp(.5rem,1.5vw,1rem);overflow-wrap:anywhere;font-size:clamp(.7rem,1.8vh,1rem);line-height:1.25}
+.fact small{font-size:clamp(.55rem,1.3vh,.78rem)}
+@media(min-width:62rem),(orientation:landscape) and (min-width:35rem){
+  .intro{grid-template-columns:1fr 1.15fr;gap:clamp(1rem,4vw,3rem)}
+  .intro h3{font-size:clamp(1.6rem,6.5vh,3.8rem)}
+  .intro p{font-size:clamp(.72rem,2.2vh,1.2rem)}
+  .photo{width:clamp(3.5rem,22vh,11rem)}
+  .fact{font-size:clamp(.7rem,1.9vh,1rem)}
+}
+/* phones (portrait) */
+@media(max-width:62rem) and (orientation:portrait){
+  .intro p{font-size:clamp(.68rem,min(1.9vh,3.2vw),1.1rem);line-height:1.35;margin-bottom:.4rem}
+  .fact{font-size:clamp(.62rem,min(1.6vh,3.1vw),1rem);line-height:1.2}
+  .fact small{font-size:clamp(.5rem,1.1vh,.7rem)}
+  .facts{gap:.3rem}
+}
+@media(max-width:62rem) and (orientation:portrait) and (max-height:720px){
+  .photo{display:none}
+}
+@media(max-width:62rem) and (orientation:portrait) and (max-height:600px){
+  .intro p + p{display:none}
+}
+@media(max-height:420px){.photo{display:none}}
 </style>
 </head>
 <body>
@@ -68,7 +110,6 @@ nav .navlinks a.active,nav .navlinks a:hover{border-bottom-color:var(--teal)}
       <p>I'm interested in computers, and I'm always willing to learn. Outside class, I enjoy gaming, playing basketball, and learning how to code. I want to keep building my skills one step at a time so I can grow into a capable IT professional.</p>
       <div class="buttons">
         <a class="back" href="index.html">&larr; Back to cover</a>
-        <a class="back" href="#personal-info">Personal information &darr;</a>
       </div>
     </div>
     <div class="side">
@@ -81,7 +122,7 @@ nav .navlinks a.active,nav .navlinks a:hover{border-bottom-color:var(--teal)}
         <div class="fact"><small>HOBBIES</small>Gaming, Basketball, Learning to code</div>
         <div class="fact"><small>LANGUAGES</small>English, Filipino, Ilocano</div>
         <div class="fact"><small>BIRTHDAY</small>June 23, 2008</div>
-        <div class="fact"><small>LOCATION</small>#51 Padre Zamora, Baguio City</div>
+        <div class="fact"><small>ADDRESS</small>#51 Padre Zamora, Baguio City</div>
         <div class="fact"><small>MOTTO</small>Try and try until you succeed</div>
         <div class="fact"><small>EMAIL</small>jc6661577@gmail.com</div>
       </div>
